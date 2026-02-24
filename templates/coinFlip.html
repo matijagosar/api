@@ -8,21 +8,25 @@
 <body>
     <h1>Met kovanca:</h1>
     <div id="coin">Pritisni gumb za met kovanca</div>
+    <input type="text" name="" id="vrednost">
+    <img src="" alt="Coin" id="slika">
     <button onclick="btnClick()" type="button">Flip</button>
-
 </body>
 
 </html>
 <script>
     function btnClick() {
         var divCoin = document.getElementById("coin")
+        var inpText = document.getElementById("vrednost").value
+        console.log(inpText)
         $.ajax({
             url: "/coinData",
             data: {
-                zipcode: 97201
+                vrednost: inpText
             },
             success: function (result) {
-                divCoin.innerHTML = result
+                divCoin.innerHTML = result.status
+                document.getElementById("slika").src = result.img;
                 console.log(result)
             }
         });

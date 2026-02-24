@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Quote</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <hr>
+    <h1>💬 Random Quote Generator</h1>
+    <hr>
+    <br>
+    <blockquote>
+        <div id="quote">
+            <i>Press the button to get a random quote...</i>
+        </div>
+    </blockquote>
+    <br>
+    <button onclick="btnClick()" type="button"><b>✨ Get Quote ✨</b></button>
+    <br><br>
+    <hr>
+</body>
+
+</html>
+<script>
+    function btnClick() {
+        var divQuote = document.getElementById("quote")
+        $.ajax({
+            url: "/randomQuoteData",
+            success: function (result) {
+                divQuote.innerHTML = '<i>"' + result.quote + '"</i>' + "<br><br><b>— " + result.author + "</b>";
+                console.log(result)
+            }
+        });
+    }
+</script>
