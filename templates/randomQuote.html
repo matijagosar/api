@@ -27,7 +27,8 @@
     function btnClick() {
         var divQuote = document.getElementById("quote")
         $.ajax({
-            url: "/randomQuoteData",
+            url: "/randomQuote",
+            method: "POST",
             success: function (result) {
                 divQuote.innerHTML = '<i>"' + result.quote + '"</i>' + "<br><br><b>— " + result.author + "</b>";
                 console.log(result)

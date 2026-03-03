@@ -20,7 +20,8 @@
         var inpText = document.getElementById("vrednost").value
         console.log(inpText)
         $.ajax({
-            url: "/coinData",
+            url: "/coinFlip",
+            method: "POST",
             data: {
                 vrednost: inpText
             },
